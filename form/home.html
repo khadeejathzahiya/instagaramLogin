@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+    <!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>khadeejath zahiya vs — Full‑Stack Developer</title>
+
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #0b1020;
+      --bg-soft: #0f1630;
+      --card: #121a39;
+      --text: #e9eefc;
+      --muted: #b5c3ff;
+      --accent: #7c9bff;
+      --accent-2: #9a7cff;
+      --shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+      --radius: 18px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      color: var(--text);
+      background: radial-gradient(1200px 800px at 80% -10%, rgba(124, 155, 255, 0.18), transparent 60%),
+                  radial-gradient(1000px 700px at -10% 20%, rgba(154, 124, 255, 0.18), transparent 60%),
+                  var(--bg);
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, 'Helvetica Neue', Arial, "Noto Sans", sans-serif;
+      line-height: 1.55;
+      scroll-behavior: smooth;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .wrapper { max-width: 1100px; margin: 0 auto; padding: 24px; }
+
+    /* NAV */
+    .nav {
+      position: sticky; top: 0; z-index: 40;
+      backdrop-filter: blur(10px);
+      background: linear-gradient(180deg, rgba(11, 16, 32, 0.75), rgba(11, 16, 32, 0.35));
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 16px 24px; }
+    .brand { font-weight: 700; letter-spacing: 0.3px; display: flex; align-items: center; gap: 10px; }
+    .brand .avatar { width: 34px; height: 34px; border-radius: 50%; background: linear-gradient(135deg, var(--accent), var(--accent-2)); display: grid; place-items: center; font-weight: 700; color: #0b1020; }
+    .nav-links { display: flex; gap: 18px; font-size: 15px; color: var(--muted); }
+    .nav-links a { padding: 8px 12px; border-radius: 999px; border: 1px solid transparent; }
+    .nav-links a:hover { color: var(--text); border-color: rgba(255,255,255,0.12); background: rgba(255,255,255,0.03); }
+
+    /* HERO */
+    .hero { display: grid; grid-template-columns: 1.25fr 1fr; gap: 28px; align-items: center; padding: 64px 0 24px; }
+    .hero h1 { font-family: Poppins, Inter, sans-serif; font-size: clamp(32px, 5vw, 54px); line-height: 1.1; margin: 0 0 12px; }
+    .hero p.lead { color: var(--muted); font-size: clamp(15px, 2vw, 18px); }
+    .badges { margin: 18px 0 28px; display: flex; flex-wrap: wrap; gap: 10px; }
+    .badge { padding: 8px 12px; border-radius: 999px; background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02)); border: 1px solid rgba(255,255,255,0.12); font-size: 13px; color: var(--muted); }
+    .cta { display: flex; gap: 12px; }
+    .btn { padding: 12px 16px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.14); background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02)); color: var(--text); font-weight: 600; box-shadow: var(--shadow);
+      display: inline-flex; align-items: center; gap: 10px; }
+    .btn.primary { border-color: transparent; background: linear-gradient(135deg, var(--accent), var(--accent-2)); color: #0b1020; }
+    .btn:hover { transform: translateY(-1px); }
+    .hero-card { background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03)); border: 1px solid rgba(255,255,255,0.12); border-radius: var(--radius); padding: 20px; box-shadow: var(--shadow);
+      display: grid; gap: 14px; }
+    .kv { border-radius: 14px; height: 260px; background: radial-gradient(1000px 400px at 10% -10%, rgba(124, 155, 255, 0.25), transparent 60%), linear-gradient(135deg, rgba(124, 155, 255, 0.08), rgba(154, 124, 255, 0.12)); display: grid; place-items: center; position: relative; overflow: hidden; }
+    .kv .ring { position: absolute; width: 420px; height: 420px; border-radius: 50%; border: 1px dashed rgba(255,255,255,0.14); }
+    .kv .dot { position: absolute; width: 10px; height: 10px; border-radius: 50%; background: white; opacity: 0.5; animation: float 6s ease-in-out infinite; }
+    .kv .dot:nth-child(2) { top: 40px; left: 50px; }
+    .kv .dot:nth-child(3) { bottom: 30px; right: 60px; animation-delay: 1.2s; }
+    .kv .dot:nth-child(4) { top: 80px; right: 120px; animation-delay: 2.1s; }
+    @keyframes float { 0%,100% { transform: translateY(0) } 50% { transform: translateY(-10px) } }
+
+    /* SECTIONS */
+    section { padding: 56px 0; }
+    .section-title { font-family: Poppins, Inter, sans-serif; font-size: 26px; margin: 0 0 18px; }
+    .muted { color: var(--muted); }
+
+    /* GRID CARDS */
+    .grid { display: grid; gap: 16px; }
+    .grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
+    .grid.cols-2 { grid-template-columns: repeat(2, 1fr); }
+    .card { background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02)); border: 1px solid rgba(255,255,255,0.12); border-radius: var(--radius); padding: 18px; box-shadow: var(--shadow); }
+    .card h3 { margin: 6px 0 8px; font-size: 18px; }
+    .card p { margin: 0; color: var(--muted); font-size: 14px; }
+
+    /* TIMELINE */
+    .timeline { position: relative; margin-left: 8px; }
+    .timeline::before { content: ""; position: absolute; left: 10px; top: 0; bottom: 0; width: 2px; background: linear-gradient(180deg, rgba(124,155,255,.7), rgba(154,124,255,.3)); }
+    .tl-item { position: relative; padding-left: 34px; margin: 18px 0; }
+    .tl-item::marker { content: none; }
+    .tl-item::before { content: ""; position: absolute; left: 2px; top: 6px; width: 16px; height: 16px; border-radius: 50%; background: linear-gradient(135deg, var(--accent), var(--accent-2)); box-shadow: 0 0 0 3px rgba(124,155,255,.2); }
+    .tl-item h4 { margin: 0 0 4px; }
+    .tl-item .meta { font-size: 13px; color: var(--muted); }
+
+    /* SKILLS */
+    .skills { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    .skills ul { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+    .chip { font-size: 13px; padding: 8px 10px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.16); background: rgba(255,255,255,0.03); color: var(--text); }
+
+    /* FOOTER */
+    footer { padding: 28px 0 48px; color: var(--muted); text-align: center; border-top: 1px solid rgba(255,255,255,0.08); }
+
+    /* RESPONSIVE */
+    @media (max-width: 980px) {
+      .hero { grid-template-columns: 1fr; }
+      .grid.cols-3 { grid-template-columns: repeat(2, 1fr); }
+      .skills { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 640px) {
+      .grid.cols-3, .grid.cols-2 { grid-template-columns: 1fr; }
+      .skills { grid-template-columns: 1fr; }
+      .nav-inner { flex-wrap: wrap; }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- NAV -->
+  <header class="nav">
+    <div class="wrapper nav-inner">
+      <a class="brand" href="#home">
+        <span class="avatar">KZ</span>
+        <span>khadeejath zahiya vs</span>
+      </a>
+      <nav class="nav-links">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <main id="home" class="wrapper">
+    <section class="hero">
+      <div>
+        <h1>khadeejath zahiya vs</h1>
+        <p class="lead">Full‑Stack Developer crafting fast, accessible web apps with clean architecture and pixel‑perfect UI. I solve real problems with code, empathy, and a love for detail.</p>
+        <div class="badges">
+          <span class="badge"><i class="ri-code-s-slash-line"></i> MERN • REST • GraphQL</span>
+          <span class="badge"><i class="ri-rocket-line"></i> Performance‑first</span>
+          <span class="badge"><i class="ri-shield-check-line"></i> Secure by design</span>
+          <span class="badge"><i class="ri-smartphone-line"></i> Mobile‑friendly</span>
+        </div>
+        <div class="cta">
+          <a class="btn primary" href="#projects"><i class="ri-arrow-right-line"></i> View Projects</a>
+          <a class="btn" href="#contact"><i class="ri-send-plane-line"></i> Get in Touch</a>
+        </div>
+      </div>
+
+      <div class="hero-card">
+        <div class="kv">
+          <div class="ring"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div style="text-align:center">
+            <div style="font-size:14px; color: var(--muted); letter-spacing: 2px; text-transform: uppercase;">Now building</div>
+            <div style="font-size:28px; font-weight:700; margin-top:6px">Beautiful, scalable products</div>
+          </div>
+        </div>
+        <div class="grid cols-2">
+          <div class="card">
+            <h3><i class="ri-speed-up-line"></i> Lighthouse 95+ scores</h3>
+            <p>Core Web Vitals tuned using lazy‑loading, code‑splitting, and efficient rendering.</p>
+          </div>
+          <div class="card">
+            <h3><i class="ri-cloud-line"></i> Cloud‑ready backends</h3>
+            <p>Node/Express APIs, authentication, queues, and observability on modern cloud.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <h2 class="section-title">About</h2>
+      <p class="muted">I'm <strong>khadeejath zahiya vs</strong>, a full‑stack developer who loves transforming ideas into robust digital experiences. I pair strong fundamentals (data structures, system design, database modeling) with a designer’s eye for clean, intuitive interfaces. I value clarity, maintainability, and thoughtful documentation as much as shipping features.</p>
+
+      <div class="grid cols-3" style="margin-top:16px">
+        <div class="card">
+          <h3><i class="ri-stack-line"></i> What I do</h3>
+          <p>End‑to‑end product dev: requirements, UI/UX, APIs, databases, CI/CD, and monitoring.</p>
+        </div>
+        <div class="card">
+          <h3><i class="ri-team-line"></i> How I work</h3>
+          <p>Collaborative, feedback‑driven, and user‑centric. I ship iteratively and measure impact.</p>
+        </div>
+        <div class="card">
+          <h3><i class="ri-lightbulb-flash-line"></i> What I care about</h3>
+          <p>Performance, accessibility (WCAG), secure defaults, and delightful micro‑interactions.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills">
+      <h2 class="section-title">Skills</h2>
+      <div class="skills">
+        <div class="card">
+          <h3>Frontend</h3>
+          <ul>
+            <li class="chip">HTML5</li>
+            <li class="chip">CSS3 / SASS</li>
+            <li class="chip">JavaScript (ES6+)</li>
+            <li class="chip">React</li>
+            <li class="chip">Next.js</li>
+            <li class="chip">Tailwind</li>
+            <li class="chip">Accessibility (ARIA)</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Backend</h3>
+          <ul>
+            <li class="chip">Node.js</li>
+            <li class="chip">Express</li>
+            <li class="chip">REST / GraphQL</li>
+            <li class="chip">MongoDB</li>
+            <li class="chip">PostgreSQL</li>
+            <li class="chip">Authentication (JWT/OAuth)</li>
+            <li class="chip">WebSockets</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>DevOps & Tools</h3>
+          <ul>
+            <li class="chip">Git & GitHub</li>
+            <li class="chip">Docker</li>
+            <li class="chip">CI/CD</li>
+            <li class="chip">Cloud (AWS/Vercel)</li>
+            <li class="chip">Testing (Jest)</li>
+            <li class="chip">Postman</li>
+            <li class="chip">Figma</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects">
+      <h2 class="section-title">Featured Projects</h2>
+      <div class="grid cols-3">
+        <article class="card">
+          <h3><i class="ri-shopping-bag-3-line"></i> Dressify — E‑commerce</h3>
+          <p>Full‑stack store with product search, cart, checkout, and admin dashboards. Optimized for SEO and Core Web Vitals.</p>
+          <p class="muted">Stack: Next.js, Node, MongoDB, Stripe</p>
+        </article>
+        <article class="card">
+          <h3><i class="ri-chat-1-line"></i> Chatter — Realtime Chat</h3>
+          <p>Secure messaging with groups, typing indicators, and presence using WebSockets and JWT auth.</p>
+          <p class="muted">Stack: React, Express, Socket.IO, Redis</p>
+        </article>
+        <article class="card">
+          <h3><i class="ri-line-chart-line"></i> Insight — Analytics Dashboard</h3>
+          <p>Interactive dashboard with role‑based access, powerful filters, and blazing‑fast queries.</p>
+          <p class="muted">Stack: React, Node, PostgreSQL</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience">
+      <h2 class="section-title">Experience</h2>
+      <ol class="timeline">
+        <li class="tl-item">
+          <h4>Full‑Stack Developer • Freelance</h4>
+          <div class="meta">2023 — Present</div>
+          <p class="muted">Built end‑to‑end apps for small businesses and startups: auth, payments, dashboards, and responsive UIs.</p>
+        </li>
+        <li class="tl-item">
+          <h4>Frontend Developer • Project Work</h4>
+          <div class="meta">2022 — 2023</div>
+          <p class="muted">Implemented component libraries, accessibility improvements, and performance optimizations across multiple web apps.</p>
+        </li>
+      </ol>
+    </section>
+
+    <!-- HIGHLIGHTS -->
+    <section id="highlights">
+      <h2 class="section-title">Highlights</h2>
+      <div class="grid cols-3">
+        <div class="card">
+          <h3><i class="ri-award-line"></i> Quality</h3>
+          <p>Unit/integration tests and automated checks in CI to keep releases stable and reliable.</p>
+        </div>
+        <div class="card">
+          <h3><i class="ri-seo-line"></i> SEO & Accessiblity</h3>
+          <p>Semantic HTML, alt text, keyboard navigation, and structured data for discoverability.</p>
+        </div>
+        <div class="card">
+          <h3><i class="ri-customer-service-2-line"></i> Communication</h3>
+          <p>Clear docs, issue tracking, and async updates—so teams move fast with confidence.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <h2 class="section-title">Contact</h2>
+      <div class="grid cols-2">
+        <div class="card">
+          <h3>Let’s build something great</h3>
+          <p class="muted">Email: <a href="mailto:hello@example.com">zahiya@gmail.com</a><br>Phone: <a href="tel:+910000000000">+91 1234567890</a></p>
+          <p class="muted">Location: India • Open to remote & onsite</p>
+          <div style="display:flex; gap:12px; margin-top:10px">
+            <a class="btn" href="#" aria-label="GitHub"><i class="ri-github-line"></i> GitHub</a>
+            <a class="btn" href="#" aria-label="LinkedIn"><i class="ri-linkedin-line"></i> LinkedIn</a>
+            <a class="btn" href="#" aria-label="Portfolio"><i class="ri-external-link-line"></i> Portfolio</a>
+          </div>
+        </div>
+        <form class="card" onsubmit="event.preventDefault(); alert('Thanks! I\'ll get back to you soon.');">
+          <h3>Quick Message</h3>
+          <label class="muted" for="name">Your Name</label>
+          <input id="name" required placeholder="Your name" style="width:100%; margin:6px 0 10px; padding:12px 14px; border-radius:10px; border:1px solid rgba(255,255,255,.16); background:rgba(255,255,255,.03); color:var(--text);">
+
+          <label class="muted" for="email">Email</label>
+          <input id="email" type="email" required placeholder="you@example.com" style="width:100%; margin:6px 0 10px; padding:12px 14px; border-radius:10px; border:1px solid rgba(255,255,255,.16); background:rgba(255,255,255,.03); color:var(--text);">
+
+          <label class="muted" for="msg">Message</label>
+          <textarea id="msg" required placeholder="Tell me about your project..." rows="4" style="width:100%; margin:6px 0 14px; padding:12px 14px; border-radius:10px; border:1px solid rgba(255,255,255,.16); background:rgba(255,255,255,.03); color:var(--text);"></textarea>
+
+          <button class="btn primary" type="submit"><i class="ri-send-plane-2-line"></i> Send</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrapper">
+      © <span id="year"></span> khadeejath zahiya vs — Full‑Stack Developer. All rights reserved.
+    </div>
+  </footer>
+
+  <script>
+    // Set current year in footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
+    

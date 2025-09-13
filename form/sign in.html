@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sign in-page</title>
+    <link rel="stylesheet" href="form.css">
+</head>
+
+<body class="signin">
+    <!-- sign in  -->
+    <form action="login.html" id="signinform">
+        <h1 class="login-head">Instagram</h1>
+        <p class="signin-para1">sign up to see photos and videos <br> from your friends</p>
+        <label for="email">Enter Email : </label>
+        <input type="text" name="email" id="email" required><br><br>
+
+        <label for="user-name"> Username :</label>
+        <input type="text" name="username" id="user-name" required><br><br>
+
+        <label for="password"> password :</label>
+        <input type="password" name="password" id="password" required><br><br>
+
+        <label for="fullname">re password:</label>
+        <input type="password" name="repassword" id="fullname" required><br><br>
+
+        
+
+        <p class="signin-para2">people who use our service may have uploaded <br> your contact
+            information to instagaram. <a href="">learn more</a></p>
+
+     <button class="btn1" type="submit">Sign up </button> 
+
+        <hr>
+        <p class="signin-para3">have an an account? <a href="login.html">login</a></p>
+
+        <label id="status"></label>
+
+
+    </form>
+
+    <script>
+        let form = document.querySelector("#signinform")
+        let status = document.querySelector("#status")
+        form.addEventListener("submit", (e) => {
+            e.preventDefault();
+            let Email = form.elements.email.value.trim();
+           // console.log(Email)
+            let Password = form.elements.password.value;
+             // console.log(Password)
+            let Repass = form.elements.repassword.value;
+            //console.log( Repass)
+            let UserName = form.elements.username.value;
+           // console.log(UserName)
+
+            if (!Email || !Password || !Repass || !UserName)
+             return;
+
+            if (Repass !== Password) {
+                status.textContent = "enter same password";
+                return;
+            }
+            else {
+                status.textContent = "";
+            }
+
+
+
+            localStorage.setItem("userEmail", Email)
+            localStorage.setItem("userPass", Password)
+            localStorage.setItem("userName", UserName);
+
+            form.reset()
+            window.location.href = form.action;
+        });
+
+    </script>
+
+</body>
+
+</html>

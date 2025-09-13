@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login-page</title>
+    <link rel="stylesheet" href="form.css">
+</head>
+
+<body class="login-body">
+
+    <!-- <h1>login </h1> -->
+    <form action="home.html" id="Loginform">
+        <h1 class="login-head">Instagram</h1>
+        <label for="username">Enter Username :</label>
+        <input type="text" name="name" id="username" required><br><br><br>
+
+        <label for="userpass">Enter password :</label>
+        <input type="password" name="pass" id="userpass" required><br>
+
+        <p class="login-para">forgotten password</p>
+
+        <button class="btn1" type="submit">Login</button>
+
+        <a class="login-a1" href="">login with facebook</a><br><br><br>
+        <hr>
+
+
+        <p class="login-para2">Don't have an acount <a href="sign in.html">signup</a></p>
+
+        <label id="status"></label>
+
+    </form>
+    <script>
+        let userEmail = localStorage.getItem("userEmail");
+        let userpass = localStorage.getItem("userPass");
+        let userName = localStorage.getItem("userName");
+
+        let form = document.querySelector("#Loginform")
+        let status = document.querySelector("#status")
+
+        form.addEventListener("submit", (e) => {
+            e.preventDefault();
+            let loginUserName = form.elements.name.value.trim();
+            let LoginUserPass = form.elements.pass.value;
+            console.log(userpass)
+            console.log(LoginUserPass)
+            console.log(userName)
+            console.log(loginUserName)
+            
+            if (loginUserName === userName || loginUserName === userEmail) {
+                if (LoginUserPass === userpass) {
+                    form.reset();
+                    window.location.href = form.action;
+                }
+                else {
+                    status.textContent = "invalid password ";
+                    return;
+                }
+            }
+            else {
+                status.textContent = "invalid username ";
+                return;
+            }
+        })
+
+    </script>
+
+
+</body>
+
+</html>
